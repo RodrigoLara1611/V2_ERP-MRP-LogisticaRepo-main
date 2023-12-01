@@ -1,0 +1,23 @@
+<body>
+    <div class="container mt-5">
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link" href="#usuarios" data-toggle="tab" onclick="loadUsuarios()">Usuarios</a>
+            </li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane" id="usuarios">
+                <div id="userTable"></div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function loadUsuarios() {
+            fetch('/panel/usuarios')
+                .then(response => response.text())
+                .then(html => {
+                    document.getElementById('userTable').innerHTML = html;
+                });
+        }
+    </script>
+</body>

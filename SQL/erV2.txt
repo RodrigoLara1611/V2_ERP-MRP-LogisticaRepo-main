@@ -1,0 +1,53 @@
+Table Usuarios {
+    id int [pk, increment]
+    correo varchar [not null, unique]
+    password varchar [not null]
+    nombre varchar
+    fecha_registro datetime [not null]
+    perfil_img varchar
+}
+
+Table Vehiculos {
+    id int [pk, increment]
+    usuario_id int [ref: > Usuarios.id]
+    tipo varchar [not null]
+    modelo varchar
+    capacidad varchar [not null]
+}
+
+Table Rutas {
+    id int [pk, increment]
+    origen varchar [not null]
+    destino varchar [not null]
+    fecha_recoleccion datetime [not null]
+    fecha_entrega datetime [not null]
+    vehiculo_id int [ref: > Vehiculos.id]
+    estado varchar [not null]
+}
+
+Table SolicitudesEmbarque {
+    id int [pk, increment]
+    usuario_id int [ref: > Usuarios.id]
+    origen varchar [not null]
+    destino varchar [not null]
+    fecha_solicitud datetime [not null]
+    fecha_recoleccion_estimada datetime
+    fecha_entrega_estimada datetime
+    estado varchar [not null]
+}
+
+Table Notificaciones {
+    id int [pk, increment]
+    usuario_id int [ref: > Usuarios.id]
+    mensaje varchar [not null]
+    fecha_notificacion datetime [not null]
+    leido boolean [not null]
+}
+
+Table Reportes {
+    id int [pk, increment]
+    titulo varchar [not null]
+    contenido text [not null]
+    fecha_reporte datetime [not null]
+    tipo varchar [not null]
+}

@@ -1,0 +1,60 @@
+Table Usuarios {
+  id int [pk, increment]
+  correo varchar
+  password varchar
+  nombre varchar
+  fecha_registro datetime
+  perfil_img varchar
+}
+
+Table Vehiculos {
+  id int [pk, increment]
+  usuario_id int [ref: > Usuarios.id]
+  tipo varchar
+  modelo varchar
+  capacidad varchar
+}
+
+Table Rutas {
+  id int [pk, increment]
+  origen varchar
+  destino varchar
+  fecha_recoleccion datetime
+  fecha_entrega datetime
+  vehiculo_id int [ref: > Vehiculos.id]
+  estado varchar
+}
+
+Table Productos {
+  id int [pk, increment]
+  nombre varchar
+  img_url varchar
+  cantidad_stock int
+  precio_unitario float
+  estado varchar
+}
+
+Table OrdenesCompra {
+  id int [pk, increment]
+  producto_id int [ref: > Productos.id]
+  usuario_id int [ref: > Usuarios.id]
+  cantidad int
+  fecha_orden datetime
+  estado varchar
+}
+
+Table Notificaciones {
+  id int [pk, increment]
+  usuario_id int [ref: > Usuarios.id]
+  mensaje varchar
+  fecha_notificacion datetime
+  leido boolean
+}
+
+Table Reportes {
+  id int [pk, increment]
+  titulo varchar
+  contenido text
+  fecha_reporte datetime
+  tipo varchar
+}

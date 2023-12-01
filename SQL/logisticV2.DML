@@ -1,0 +1,55 @@
+-- Usuarios (empresas de distribución)
+INSERT INTO Usuarios (correo, password, nombre, fecha_registro, perfil_img)
+VALUES ('distribuidora_alpha@gmail.com', 'alpha123', 'Distribuidora Alpha', '2023-10-19 12:00:00', 'img/usuarios/1.png'),
+       ('tecno_galaxia@gmail.com', 'galaxia456', 'Tecno Galaxia', '2023-09-15 15:30:00', 'img/usuarios/2.png'),
+       ('celu_world@gmail.com', 'world789', 'Celu World', '2023-08-10 10:15:00', 'img/usuarios/3.png'),
+       ('movil_center@gmail.com', 'center321', 'Móvil Center', '2023-07-05 14:20:00', 'img/usuarios/4.png'),
+       ('telestore@gmail.com', 'store654', 'TeleStore', '2023-06-01 09:45:00', 'img/usuarios/5.png'),
+       ('mega_moviles@gmail.com', 'mega987', 'Mega Móviles', '2023-05-20 13:10:00', 'img/usuarios/6.png');
+
+-- Vehículos
+INSERT INTO Vehiculos (usuario_id, tipo, modelo, capacidad, imagen)
+VALUES (1, 'Furgoneta', 'Ford Transit', '1.2 toneladas', 'img/vehiculos/1.png'),
+       (2, 'Furgoneta', 'Mercedes-Benz Sprinter', '1.5 toneladas', 'img/vehiculos/2.png'),
+       (3, 'Camión ligero', 'Isuzu NPR', '3 toneladas', 'img/vehiculos/3.png'),
+       (4, 'Camión ligero', 'Hino 155', '2.7 toneladas', 'img/vehiculos/4.png'),
+       (5, 'Furgoneta', 'Nissan NV2500', '1.1 toneladas', 'img/vehiculos/5.png'),
+       (6, 'Furgoneta', 'Chevrolet Express', '1 tonelada', 'img/vehiculos/6.png');
+
+-- Rutas
+INSERT INTO Rutas (origen, destino, duracion_estimada, vehiculo_id)
+VALUES ('Monterrey, México', 'Ciudad de México, México', '4 horas', 1),
+       ('Guadalajara, Jalisco', 'Puebla, México', '4 horas', 2),
+       ('Querétaro, México', 'Veracruz, Veracruz', '4.5 horas', 3),
+       ('Ciudad de México, México', 'Mérida, Yucatán', '8 horas', 4),
+       ('Mazatlán, Sinaloa', 'Guadalajara, Jalisco', '4 horas', 5),
+       ('Tijuana, Baja California', 'Hermosillo, Sonora', '9 horas', 6);
+
+
+-- SolicitudesEmbarque (Asumiendo pesos aleatorios para cada solicitud)
+INSERT INTO SolicitudesEmbarque (usuario_id, origen, destino, fecha_solicitud, fecha_recoleccion_estimada, fecha_entrega_estimada, estado, peso)
+VALUES (1, 'Monterrey, México', 'Ciudad de México, México', '2023-10-20 10:00:00', '2023-10-21 10:00:00', '2023-10-22 10:00:00', 'Pendiente', 350.5),
+       (2, 'Guadalajara, Jalisco', 'Puebla, México', '2023-10-22 09:00:00', '2023-10-23 09:00:00', '2023-10-24 09:00:00', 'Pendiente', 275.0),
+       (3, 'Querétaro, México', 'Veracruz, Veracruz', '2023-10-23 11:00:00', '2023-10-24 11:00:00', '2023-10-25 11:00:00', 'Pendiente', 400.8),
+       (4, 'Ciudad de México, México', 'Mérida, Yucatán', '2023-10-25 08:00:00', '2023-10-26 08:00:00', '2023-10-27 08:00:00', 'Pendiente', 560.0),
+       (5, 'Mazatlán, Sinaloa', 'Guadalajara, Jalisco', '2023-10-27 07:30:00', '2023-10-28 07:30:00', '2023-10-29 07:30:00', 'Pendiente', 320.3),
+       (6, 'Tijuana, Baja California', 'Hermosillo, Sonora', '2023-10-29 06:00:00', '2023-10-30 06:00:00', '2023-10-31 06:00:00', 'Pendiente', 455.2);
+
+
+-- Notificaciones
+INSERT INTO Notificaciones (usuario_id, mensaje, fecha_notificacion, leido)
+VALUES (1, 'Tu orden ha sido procesada.', '2023-10-19 12:20:00', FALSE),
+       (2, 'Tu orden ha sido entregada.', '2023-10-18 13:25:00', TRUE),
+       (3, 'Tu orden está en camino.', '2023-10-17 14:35:00', FALSE),
+       (4, 'Tu orden ha sido entregada.', '2023-10-16 10:45:00', TRUE),
+       (5, 'Tu orden ha sido procesada.', '2023-10-15 11:50:00', FALSE),
+       (6, 'Tu orden está en camino.', '2023-10-14 15:55:00', FALSE);
+
+-- Reportes
+INSERT INTO Reportes (titulo, contenido, fecha_reporte, tipo)
+VALUES ('Problema con entrega', 'La entrega se retrasó 2 horas.', '2023-10-17 15:00:00', 'Entrega'),
+       ('Producto dañado', 'El iPhone 12 Pro llegó con la pantalla rota.', '2023-10-16 11:00:00', 'Producto'),
+       ('Camión averiado', 'El camión Isuzu NPR tuvo una falla en el motor.', '2023-10-15 13:00:00', 'Vehículo'),
+       ('Ruta bloqueada', 'La ruta a Puebla estuvo bloqueada por un accidente.', '2023-10-14 14:00:00', 'Ruta'),
+       ('Pedido incorrecto', 'Se envió un iPhone 11 en lugar de un iPhone 12.', '2023-10-13 10:00:00', 'Producto'),
+       ('Retraso en recolección', 'La recolección en Toluca se retrasó por lluvia.', '2023-10-12 16:00:00', 'Clima');
