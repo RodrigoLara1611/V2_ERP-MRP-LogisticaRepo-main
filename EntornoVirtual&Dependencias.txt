@@ -1,0 +1,17 @@
+Lista de dependencias a instalar para Logisitca:
+///////////////////////////////////////////////
+/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/
+
+python -m venv entornoVirtual
+
+pip install sqlalchemy
+pip install fastapi
+pip install reactpy
+pip install 'uvicorn[standard]'
+pip install requests_toolbelt
+pip install mysql-connector
+pip install Jinja2
+pip install python-multipart
+pip install httpx
+pip install reactpy-router
+
